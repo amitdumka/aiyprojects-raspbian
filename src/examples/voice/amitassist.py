@@ -950,31 +950,25 @@ class MyAssistant:
         #        say('Encountered an exception please check the logs.')
 
 
-def main():
-    logging.basicConfig(level=logging.INFO)
-    #MyAssistant().start()
-    
-            for event in assistant.start():
-                self._process_event(event)
-    
-    
-    #in future add device id
-    credentials = auth_helpers.get_assistant_credentials()
-        with Assistant(credentials) as assistant:
-            self._assistant = assistant
-                subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Male.wav".format(ROOT_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            else:
-                subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Female.wav".format(ROOT_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            events = assistant.start()
-            for event in events:
-                if event.type == EventType.ON_START_FINISHED and args.query:
-                    assistant.send_text_query(args.query)
-                self.process_event(event)
-
-     
-     
-     if custom_wakeword:
-            self.detector.terminate()
+    def main():
+        logging.basicConfig(level=logging.INFO)
+        #MyAssistant().start()
+        #for event in assistant.start():
+         #   self._process_event(event)
+        #in future add device id
+        credentials = auth_helpers.get_assistant_credentials()
+            with Assistant(credentials) as assistant:
+                self._assistant = assistant
+                    subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Male.wav".format(ROOT_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                else:
+                    subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Female.wav".format(ROOT_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                events = assistant.start()
+                for event in events:
+                    if event.type == EventType.ON_START_FINISHED and args.query:
+                        assistant.send_text_query(args.query)
+                    self.process_event(event)        
+            if custom_wakeword:
+                self.detector.terminate()
     
 
 
