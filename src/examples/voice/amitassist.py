@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Copyright (C) 2019 CyberN Systems.
 #
@@ -19,7 +19,7 @@ The Google Assistant Library has direct access to the audio API, so this Python
 code doesn't need to record audio. Hot word detection "OK, Google" is supported.
 It is available for Raspberry Pi 2/3 only; Pi Zero is not supported.
 """
-
+from __future__ import print_function
 
 import platform
 
@@ -32,7 +32,7 @@ from aiy.assistant.library import Assistant
 from aiy.board import Board, Led
 
 #from Gassist
-from __future__ import print_function
+
 import faulthandler
 faulthandler.enable()
 from kodijson import Kodi, PLAYER_VIDEO
